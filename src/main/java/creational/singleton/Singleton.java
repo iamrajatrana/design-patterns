@@ -5,9 +5,13 @@ import java.io.Serializable;
 public class Singleton implements Serializable {
     private static Singleton INSTANCE;
 
-    private Singleton() {}
+    private Singleton() throws IllegalAccessException {
+        if (INSTANCE != null) {
+            throw new IllegalAccessException("Not allowed");
+        }
+    }
 
-    public static Singleton getInstance() {
+    public static Singleton getInstance() throws IllegalAccessException {
         if(INSTANCE == null) {
             synchronized (Singleton.class) {
                 if(INSTANCE == null) {
@@ -18,7 +22,7 @@ public class Singleton implements Serializable {
         return INSTANCE;
     }
 
-    protected Object readResolve() {
+    protected Object readResolve() throws IllegalAccessException {
         return getInstance();
     }
 }

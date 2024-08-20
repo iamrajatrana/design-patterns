@@ -1,7 +1,7 @@
 package creational.singleton;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalAccessException {
         Singleton obj1 = Singleton.getInstance();
         Singleton obj2 = Singleton.getInstance();
         System.out.println(obj1.equals(obj2));
