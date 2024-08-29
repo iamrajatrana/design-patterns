@@ -8,6 +8,12 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Network network = null;
+
+        System.out.println("\nChoose social network for posting message.\n" +
+                           "1 - Facebook\n" +
+                           "2 - Twitter");
+        int choice = Integer.parseInt(reader.readLine());
+
         System.out.print("Input user name: ");
         String userName = reader.readLine();
         System.out.print("Input password: ");
@@ -16,11 +22,6 @@ public class Main {
         // Enter the message.
         System.out.print("Input message: ");
         String message = reader.readLine();
-
-        System.out.println("\nChoose social network for posting message.\n" +
-                "1 - Facebook\n" +
-                "2 - Twitter");
-        int choice = Integer.parseInt(reader.readLine());
 
         // Create proper network object and send the message.
         if (choice == 1) {
